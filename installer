@@ -1,0 +1,45 @@
+#!/bin/bash
+
+# Server updaten und installieren
+apt-get update && echo 'y' | apt-get upgrade
+sleep 2
+# TeamSpeak-Directory erstellen, herunterladen und umbenennen
+cd /opt/
+sleep 2
+wget http://dl.4players.de/ts/releases/3.0.13.6/teamspeak3-server_linux_amd64-3.0.13.6.tar.bz2
+sleep 2
+tar -jxvf teamspeak3-server_linux_amd64-3.0.13.6.tar.bz2
+sleep 2
+mv /opt/teamspeak3-server_linux_amd64 /opt/teamspeak
+sleep 2
+cd /opt/teamspeak
+# TeamSpeak-Directoryrechte zuweisen und Querypasswort ändern
+sleep 2
+chown -R root:root *
+sleep 2
+./ts3server_startscript.sh start
+# Downloade und aktualisiere die Query-Whitelist
+sleep 10
+./ts3server_startscript.sh stop
+sleep 7
+rm /opt/teamspeak/query_ip_whitelist.txt
+sleep 1
+wget https://naspyy.eu/content/dl/query_ip_whitelist.txt
+mv query_ip_whitelist.txt /opt/teamspeak/query_ip_whitelist.txt
+chmod 755 /opt/teamspeak/query_ip_whitelist.txt
+sleep 1
+./ts3server_startscript.sh start
+# Downloade und installiere anti-crash.sh
+apt-get install cron
+sleep 1
+apt-get install dos2unix
+sleep 1
+wget https://naspyy.eu/content/dl/anticrash.sh
+sleep 1
+mv anticrash.sh /opt/teamspeak/anticrash.sh
+sleep 1
+dos2unix /opt/teamspeak/anticrash.sh
+sleep 1
+crontab -l | { cat; echo "* * * * * ./opt/teamspeak/anticrash.sh >/dev/null 2>&1"; } | crontab -
+sleep 1
+chmod 755 /opt/teamspeak/anticrash.sh
