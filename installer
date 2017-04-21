@@ -16,7 +16,8 @@ chown -R root:root /opt/teamspeak
 #
 # start teamspeak the first time...
 #
-cd /opt/teamspeak && ./ts3server_startscript.sh start
+cd /opt/teamspeak
+./ts3server_startscript.sh start
 sleep 10
 #
 # ...and stop it again
@@ -39,7 +40,8 @@ sleep 5
 wget https://raw.githubusercontent.com/Naspyy/teamspeak-installer/master/anticrash.sh
 mv anticrash.sh /opt/teamspeak/anticrash.sh
 dos2unix /opt/teamspeak/anticrash.sh
-cd /opt/teamspeak/logs/ && echo > anticrash.txt
+cd /opt/teamspeak/logs/
+echo > anticrash.txt
 chmod 777 anticrash.txt
 crontab -l | { cat; echo "* * * * * cd /opt/teamspeak && ./anticrash.sh > /opt/teamspeak/logs/anticrash.txt"; } | crontab -
 chmod 755 /opt/teamspeak/anticrash.sh
