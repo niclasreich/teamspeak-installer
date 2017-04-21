@@ -39,6 +39,8 @@ sleep 5
 wget https://raw.githubusercontent.com/Naspyy/teamspeak-installer/master/anticrash.sh
 mv anticrash.sh /opt/teamspeak/anticrash.sh
 dos2unix /opt/teamspeak/anticrash.sh
-crontab -l | { cat; echo "* * * * * ./opt/teamspeak/anticrash.sh >/dev/null 2>&1"; } | crontab -
+cd /opt/teamspeak/logs/ && echo > anticrash.txt
+chmod 777 anticrash.txt
+crontab -l | { cat; echo "* * * * * cd /opt/teamspeak && ./anticrash.sh > /opt/teamspeak/logs/anticrash.txt"; } | crontab -
 chmod 755 /opt/teamspeak/anticrash.sh
 chown -R root:root /opt/teamspeak
