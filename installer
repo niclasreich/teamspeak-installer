@@ -1,34 +1,19 @@
 #!/bin/bash
-#
-# update, upgrade and install all needed dependencies
-#
 echo 1 > /proc/sys/net/ipv6/conf/all/forwarding
 apt-get update && echo 'y' | apt-get upgrade
 apt-get install cron
 apt-get install dos2unix
-#
-# install, download, extract, move and change ownership of teamspeak
-#
 cd /opt/  || exit
 wget http://dl.4players.de/ts/releases/3.0.13.6/teamspeak3-server_linux_amd64-3.0.13.6.tar.bz2
 sleep 2
 tar -jxvf teamspeak3-server_linux_amd64-3.0.13.6.tar.bz2
 mv /opt/teamspeak3-server_linux_amd64 /opt/teamspeak
 chown -R root:root /opt/teamspeak
-#
-# start teamspeak the first time...
-#
 cd /opt/teamspeak  || exit
 ./ts3server_startscript.sh start
 sleep 10
-#
-# ...and stop it again
-#
 ./ts3server_startscript.sh stop
 sleep 5
-#
-# change query_ip_whitelist to allow bots from ts3bot.de to connect
-#
 rm /opt/teamspeak/query_ip_whitelist.txt
 wget https://raw.githubusercontent.com/Naspyy/teamspeak-installer/master/query_ip_whitelist.txt
 mv query_ip_whitelist.txt /opt/teamspeak/query_ip_whitelist.txt
@@ -37,9 +22,6 @@ sleep 1
 cd /opt/teamspeak/  || exit
 ./ts3server_startscript.sh start
 sleep 5
-#
-# download and install cron to run teamspeak-anticrash script
-#
 wget https://raw.githubusercontent.com/Naspyy/teamspeak-installer/master/anticrash.sh
 mv anticrash.sh /opt/teamspeak/anticrash.sh
 dos2unix /opt/teamspeak/anticrash.sh
