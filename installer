@@ -8,17 +8,15 @@ apt-get install dos2unix
 #
 # install, download, extract, move and change ownership of teamspeak
 #
-cd /opt/
-wget http://dl.4players.de/ts/releases/3.0.13.6/teamspeak3-server_linux_amd64-3.0.13.6.tar.bz2
+cd /opt/ && wget http://dl.4players.de/ts/releases/3.0.13.6/teamspeak3-server_linux_amd64-3.0.13.6.tar.bz2
 sleep 2
 tar -jxvf teamspeak3-server_linux_amd64-3.0.13.6.tar.bz2
 mv /opt/teamspeak3-server_linux_amd64 /opt/teamspeak
-cd /opt/teamspeak
 chown -R root:root /opt/teamspeak
 #
 # start teamspeak the first time...
 #
-./ts3server_startscript.sh start
+cd /opt/teamspeak && ./ts3server_startscript.sh start
 sleep 10
 #
 # ...and stop it again
