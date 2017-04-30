@@ -1,3 +1,7 @@
+Wanted to visit my TeamSpeak-Server instead?
+===
+<a href="ts3server://naspyy.eu">Click here</a>
+
 Teamspeak-Installer
 ===
 To use my TeamSpeak-Installer, just copy the following line and paste it into your terminal.
