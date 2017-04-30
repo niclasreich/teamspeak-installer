@@ -1,6 +1,6 @@
 Wanted to visit my TeamSpeak-Server instead?
 ===
-[Click here](ts3server://naspyy.eu)
+[Click here](http://www.teamspeak.com/invite/naspyy.eu/)
 
 Teamspeak-Installer
 ===
