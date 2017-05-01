@@ -1,0 +1,40 @@
+#!/bin/bash
+echo 1 > /proc/sys/net/ipv6/conf/all/forwarding
+apt-get update && echo 'y'
+sleep 3
+apt-get install sudo && echo 'y'
+sleep 3
+apt-get install cron && echo 'y'
+sleep 3
+apt-get install dos2unix && echo 'y'
+sleep 3
+apt-get install nano && echo 'y'
+sleep 3
+cd /opt/ || exit
+wget http://teamspeak.gameserver.gamed.de/ts3/releases/3.0.13.6/teamspeak3-server_linux_amd64-3.0.13.6.tar.bz2
+tar -jxvf teamspeak3-server_linux_amd64-3.0.13.6.tar.bz2
+mv teamspeak3-server_linux_amd64 /opt/teamspeak
+chmod +x -R /teamspeak/
+rm teamspeak3-server_linux_amd64-3.0.13.6.tar.bz2
+cd /opt/teamspeak/ || exit
+./ts3server_startscript.sh start
+sleep 10
+cd /opt/ || exit
+wget https://raw.githubusercontent.com/Naspyy/teamspeak-installer/master/anticrash.sh
+chmod +x anticrash.sh
+mv anticrash.sh /opt/teamspeak/anticrash.sh
+dos2unix /opt/teamspeak/anticrash.sh
+cd /opt/teamspeak/logs/  || exit
+echo > anticrash.txt
+chmod 777 anticrash.txt
+crontab -l | { cat; echo "* * * * * cd /opt/teamspeak/ && ./anticrash.sh > /opt/teamspeak/logs/anticrash.txt"; } | crontab -
+cd /opt/ || exit
+wget https://raw.githubusercontent.com/Naspyy/teamspeak-installer/master/backup.sh
+chmod +x backup.sh
+mkdir /opt/backup/
+mv backup.sh /opt/backup/backup.sh
+dos2unix /opt/backup/backup.sh
+cd /opt/backup/ || exit
+echo > backup.txt
+chmod 777 backup.txt
+crontab -l | { cat; echo "0 0 * * * cd /opt/backup/ && ./backup.sh > /opt/backup/backup.txt"; } | crontab -
