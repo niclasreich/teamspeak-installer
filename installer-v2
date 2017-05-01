@@ -38,3 +38,4 @@ cd /opt/backup/ || exit
 echo > backup.txt
 chmod 777 backup.txt
 crontab -l | { cat; echo "0 0 * * * cd /opt/backup/ && ./backup.sh > /opt/backup/backup.txt"; } | crontab -
+./opt/teamspeak/ts3server_startscript.sh status
