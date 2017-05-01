@@ -1,14 +1,16 @@
 #!/bin/bash
 echo 1 > /proc/sys/net/ipv6/conf/all/forwarding
 apt-get update && echo 'y' | apt-get upgrade
-apt-get install cron
-apt-get install dos2unix
+apt-get install sudo cron dos2unix nano && echo 'y'
+sudo adduser teamspeak -M
+sudo passwd -d teamspeak
 cd /opt/ || exit
 wget http://dl.4players.de/ts/releases/3.0.13.6/teamspeak3-server_linux_amd64-3.0.13.6.tar.bz2
 sleep 2
 tar -jxvf teamspeak3-server_linux_amd64-3.0.13.6.tar.bz2
 mv teamspeak3-server_linux_amd64 /opt/teamspeak
-chown -R root:root /opt/teamspeak
+chown -R teamspeak:teamspeak /opt/teamspeak
+su teamspeak
 cd /opt/teamspeak || exit
 ./ts3server_startscript.sh start
 sleep 10
@@ -30,4 +32,4 @@ echo > anticrash.txt
 chmod 777 anticrash.txt
 crontab -l | { cat; echo "* * * * * cd /opt/teamspeak && ./anticrash.sh > /opt/teamspeak/logs/anticrash.txt"; } | crontab -
 chmod 755 /opt/teamspeak/anticrash.sh
-chown -R root:root /opt/teamspeak
+chown -R teamspeak:teamspeak /opt/teamspeak
