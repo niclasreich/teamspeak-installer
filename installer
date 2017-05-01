@@ -5,7 +5,7 @@ apt-get install sudo
 apt-get install cron
 apt-get install dos2unix
 apt-get install nano
-sudo adduser teamspeak -M
+sudo adduser teamspeak
 sudo passwd -d teamspeak
 cd /opt/ || exit
 wget http://dl.4players.de/ts/releases/3.0.13.6/teamspeak3-server_linux_amd64-3.0.13.6.tar.bz2
