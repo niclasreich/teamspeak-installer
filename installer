@@ -1,7 +1,10 @@
 #!/bin/bash
 echo 1 > /proc/sys/net/ipv6/conf/all/forwarding
-apt-get update && echo 'y' | apt-get upgrade
-apt-get install sudo cron dos2unix nano && echo 'y'
+apt-get update && echo 'y' # | apt-get upgrade
+apt-get install sudo 
+apt-get install cron
+apt-get install dos2unix
+apt-get install nano
 sudo adduser teamspeak -M
 sudo passwd -d teamspeak
 cd /opt/ || exit
