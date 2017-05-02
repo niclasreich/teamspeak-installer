@@ -1,6 +1,6 @@
 Wanted to visit my TeamSpeak-Server instead?
 ===
-[Click here](http://www.teamspeak.com/invite/naspyy.eu/)
+[Click here](http://www.teamspeak.com/invite/naspyy.eu/) or connect to naspyy.eu in TeamSpeak³.
 
 Teamspeak-Installer
 ===
@@ -8,9 +8,10 @@ To use my TeamSpeak-Installer, just copy the following line and paste it into yo
 
 <code>bash <(wget -O- --no-check-certificate 'https://raw.githubusercontent.com/Naspyy/teamspeak-installer/master/installer-v2')</code>
 
-Features (all fully automatic)
+Features
 ===
-* Update, Upgrade and Install all needed dependencies
-* Install, Download, Extract, Move and Change the ownership of the created Teamspeak-Directory
-* Editing query_ip_whitelist.txt to allow Bots from ts3bot.de to connect
-* Download and Install a Cronjob to run a Teamspeak-Anticrash-Script every minute (which restarts the TeamSpeak-Server if it crashes)
+* updates all dependencies
+* installs needed dependencies (sudo, crontab, dos2unix & nano)
+* installs, downloads, extracts and moves TeamSpeak³-Serversoftware to /opt/teamspeak/
+* downloads and installs an Anti-Crash-Script and uses Cronjob to execute it every minute to /opt/teamspeak/anticrash.sh
+* downloads and installs a Automated-Backup-Script and uses Cronjob to execute it day to /opt/backup/backup.sh
