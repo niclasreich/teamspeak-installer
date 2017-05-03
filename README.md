@@ -11,7 +11,7 @@ To use my TeamSpeak-Installer, just copy the following line and paste it into yo
 Features
 ===
 * updates all dependencies
-* installs needed dependencies (sudo, crontab, dos2unix & nano)
+* installs needed dependencies (sudo, crontab, dos2unix, nano, zip & unzip)
 * installs, downloads, extracts and moves TeamSpeak³-Serversoftware to /opt/teamspeak/
 * downloads and installs an Anti-Crash-Script and uses Cronjob to execute it every minute to /opt/teamspeak/anticrash.sh
 * downloads and installs a Automated-Backup-Script and uses Cronjob to execute it day to /opt/backup/backup.sh
