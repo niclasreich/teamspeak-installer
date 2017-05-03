@@ -1,3 +1,5 @@
+![Build: Passing](https://img.shields.io/badge/build-passing-brightgreen.svg)
+
 Wanted to visit my TeamSpeak-Server instead?
 ===
 [Click here](http://www.teamspeak.com/invite/naspyy.eu/) or connect to naspyy.eu in TeamSpeak³.
