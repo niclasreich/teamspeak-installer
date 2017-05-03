@@ -10,6 +10,10 @@ apt-get install dos2unix && echo 'y'
 sleep 3
 apt-get install nano && echo 'y'
 sleep 3
+apt-get install zip && echo 'y'
+sleep 3
+apt-get install unzip && echo 'y'
+sleep 3
 cd /opt/ || exit
 wget http://teamspeak.gameserver.gamed.de/ts3/releases/3.0.13.6/teamspeak3-server_linux_amd64-3.0.13.6.tar.bz2
 tar -jxvf teamspeak3-server_linux_amd64-3.0.13.6.tar.bz2
