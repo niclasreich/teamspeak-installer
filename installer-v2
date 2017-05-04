@@ -2,17 +2,17 @@
 echo 1 > /proc/sys/net/ipv6/conf/all/forwarding
 apt-get update && echo 'y'
 sleep 3
-apt-get install sudo && echo 'y'
+apt-get -y install sudo
 sleep 3
-apt-get install cron && echo 'y'
+apt-get -y install cron
 sleep 3
-apt-get install dos2unix && echo 'y'
+apt-get -y install dos2unix
 sleep 3
-apt-get install nano && echo 'y'
+apt-get -y install nano
 sleep 3
-apt-get install zip && echo 'y'
+apt-get -y install zip
 sleep 3
-apt-get install unzip && echo 'y'
+apt-get -y install unzip
 sleep 3
 cd /opt/ || exit
 wget http://teamspeak.gameserver.gamed.de/ts3/releases/3.0.13.6/teamspeak3-server_linux_amd64-3.0.13.6.tar.bz2
