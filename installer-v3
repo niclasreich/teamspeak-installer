@@ -1,0 +1,41 @@
+#!/bin/bash
+# enable IPv6 support
+echo 1 > /proc/sys/net/ipv6/conf/all/forwarding
+# update and install needed dependencies
+apt-get update && echo 'y'
+apt-get -y install sudo cron dos2unix nano unzip
+# create, download, extract and rename teamspeak-directory
+adduser --disabled-password --no-create-home --gecos "" teamspeak
+mkdir /opt/teamspeak
+chown -R teamspeak:teamspeak /opt/teamspeak
+cd /opt/teamspeak || exit
+wget http://teamspeak.gameserver.gamed.de/ts3/releases/3.0.13.6/teamspeak3-server_linux_amd64-3.0.13.6.tar.bz2
+tar -jxvf teamspeak3-server_linux*.tar.bz2
+mv teamspeak3-server_linux_amd64 /opt/teamspeak/server/
+rm teamspeak3-server_linux*.tar.bz2
+chown -R teamspeak:teamspeak /opt/teamspeak
+# start teamspeak for the first time
+su teamspeak
+cd /opt/teamspeak/server/ || exit
+./ts3server_startscript.sh start
+sleep 10
+# create, download, rename and set up anticrash-file
+cd /opt/teamspeak/ || exit
+wget https://raw.githubusercontent.com/Naspyy/teamspeak-installer/master/anticrash.sh
+chmod +x anticrash.sh
+mv anticrash.sh /opt/teamspeak/anticrash.sh
+dos2unix /opt/teamspeak/anticrash.sh
+echo > anticrash.txt
+chmod 777 anticrash.txt
+crontab -l | { cat; echo "* * * * * cd /opt/teamspeak/ && ./anticrash.sh > /opt/teamspeak/anticrash.txt"; } | crontab -
+# create, download, rename and set up backup-file
+cd /opt/teamspeak/ || exit
+wget https://raw.githubusercontent.com/Naspyy/teamspeak-installer/master/backup.sh
+chmod +x backup.sh
+dos2unix /opt/teamspeak/backup.sh
+cd /opt/teamspeak/ || exit
+echo > backup.txt
+chmod 777 backup.txt
+crontab -l | { cat; echo "0 0 * * * cd /opt/teamspeak/ && ./backup.sh > /opt/teamspeak/backup.txt"; } | crontab -
+# display if teamspeak is running
+/opt/teamspeak/server/ts3server_startscript.sh status
