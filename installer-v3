@@ -11,37 +11,36 @@ apt-get -y install zip
 apt-get -y install unzip
 # create, download, extract and rename teamspeak-directory
 adduser --disabled-password --no-create-home --gecos "" teamspeak
-cd /opt/ || exit
+mkdir /opt/teamspeak
+chown -R teamspeak:teamspeak /opt/teamspeak
+cd /opt/teamspeak || exit
 wget http://teamspeak.gameserver.gamed.de/ts3/releases/3.0.13.6/teamspeak3-server_linux_amd64-3.0.13.6.tar.bz2
 tar -jxvf teamspeak3-server_linux*.tar.bz2
-mv teamspeak3-server_linux* /opt/teamspeak
+mv teamspeak3-server_linux* /opt/teamspeak/server
 rm teamspeak3-server_linux*.tar.bz2
 chown -R teamspeak:teamspeak /opt/teamspeak
 # start teamspeak for the first time
 su teamspeak
-cd /opt/teamspeak/ || exit
+cd /opt/teamspeak/server/ || exit
 ./ts3server_startscript.sh start
 sleep 10
 # create, download, rename and set up anticrash-file
-cd /opt/ || exit
+cd /opt/teamspeak/ || exit
 wget https://raw.githubusercontent.com/Naspyy/teamspeak-installer/master/anticrash.sh
 chmod +x anticrash.sh
 mv anticrash.sh /opt/teamspeak/anticrash.sh
 dos2unix /opt/teamspeak/anticrash.sh
-cd /opt/teamspeak/logs/  || exit
 echo > anticrash.txt
 chmod 777 anticrash.txt
-crontab -l | { cat; echo "* * * * * cd /opt/teamspeak/ && ./anticrash.sh > /opt/teamspeak/logs/anticrash.txt"; } | crontab -
+crontab -l | { cat; echo "* * * * * cd /opt/teamspeak/ && ./anticrash.sh > /opt/teamspeak/anticrash.txt"; } | crontab -
 # create, download, rename and set up backup-file
-cd /opt/ || exit
+cd /opt/teamspeak/ || exit
 wget https://raw.githubusercontent.com/Naspyy/teamspeak-installer/master/backup.sh
 chmod +x backup.sh
-mkdir /opt/backup/
-mv backup.sh /opt/backup/backup.sh
-dos2unix /opt/backup/backup.sh
-cd /opt/backup/ || exit
+dos2unix /opt/teamspeak/backup.sh
+cd /opt/teamspeak/ || exit
 echo > backup.txt
 chmod 777 backup.txt
-crontab -l | { cat; echo "0 0 * * * cd /opt/backup/ && ./backup.sh > /opt/backup/backup.txt"; } | crontab -
+crontab -l | { cat; echo "0 0 * * * cd /opt/teamspeak/ && ./backup.sh > /opt/teamspeak/backup.txt"; } | crontab -
 # display if teamspeak is running
-/opt/teamspeak/ts3server_startscript.sh status
+/opt/teamspeak/server/ts3server_startscript.sh status
