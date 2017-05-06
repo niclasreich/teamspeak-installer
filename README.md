@@ -1,4 +1,4 @@
-![Build: Passing](https://img.shields.io/badge/build-passing-brightgreen.svg) ![Working on: Debian 8](https://img.shields.io/badge/Working%20on-Debian%208-brightgreen.svg)
+![Working on: Debian 8](https://img.shields.io/badge/Working%20on-Debian%208-brightgreen.svg) ![Latest Version: v2](https://img.shields.io/badge/Latest%20Version-v2-brightgreen.svg) 
 
 Wanted to visit my TeamSpeak-Server instead?
 ===
