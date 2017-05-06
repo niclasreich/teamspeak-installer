@@ -16,7 +16,7 @@ rm teamspeak3-server_linux*.tar.bz2
 chown -R teamspeak:teamspeak /opt/teamspeak
 # start teamspeak for the first time
 su teamspeak
-cd /opt/teamspeak/server || exit
+cd server || exit
 ./ts3server_startscript.sh start
 sleep 10
 # create, download, rename and set up anticrash-file
