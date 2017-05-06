@@ -2,7 +2,7 @@
 # enable IPv6 support
 echo 1 > /proc/sys/net/ipv6/conf/all/forwarding
 # update and install needed dependencies
-#apt-get update && echo 'y'
+apt-get update && echo 'y'
 apt-get -y install sudo cron dos2unix nano unzip
 # create, download, extract and rename teamspeak-directory
 adduser --disabled-password --no-create-home --gecos "" teamspeak
@@ -16,14 +16,13 @@ rm teamspeak3-server_linux*.tar.bz2
 chown -R teamspeak:teamspeak /opt/teamspeak
 # start teamspeak for the first time
 su teamspeak
-cd /opt/teamspeak/server/ || exit
+cd /opt/teamspeak/server || exit
 ./ts3server_startscript.sh start
 sleep 10
 # create, download, rename and set up anticrash-file
 cd /opt/teamspeak/ || exit
 wget https://raw.githubusercontent.com/Naspyy/teamspeak-installer/master/anticrash.sh
 chmod +x anticrash.sh
-mv anticrash.sh /opt/teamspeak/anticrash.sh
 dos2unix /opt/teamspeak/anticrash.sh
 echo > anticrash.txt
 chmod 777 anticrash.txt
