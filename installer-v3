@@ -2,7 +2,7 @@
 # enable IPv6 support
 echo 1 > /proc/sys/net/ipv6/conf/all/forwarding
 # update and install needed dependencies
-apt-get update && echo 'y'
+#apt-get update && echo 'y'
 apt-get -y install sudo cron dos2unix nano unzip
 # create, download, extract and rename teamspeak-directory
 adduser --disabled-password --no-create-home --gecos "" teamspeak
