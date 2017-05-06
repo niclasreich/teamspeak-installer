@@ -11,7 +11,7 @@ chown -R teamspeak:teamspeak /opt/teamspeak
 cd /opt/teamspeak || exit
 wget http://teamspeak.gameserver.gamed.de/ts3/releases/3.0.13.6/teamspeak3-server_linux_amd64-3.0.13.6.tar.bz2
 tar -jxvf teamspeak3-server_linux*.tar.bz2
-mv teamspeak3-server_linux_amd64 /opt/teamspeak/server/
+mv teamspeak3-server_linux_amd64 server
 rm teamspeak3-server_linux*.tar.bz2
 chown -R teamspeak:teamspeak /opt/teamspeak
 # start teamspeak for the first time
