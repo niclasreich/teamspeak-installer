@@ -1,3 +1,4 @@
+#!/bin/bash
 cd /opt/teamspeak/server || exit
 ./ts3server_startscript.sh start
 sleep 10
