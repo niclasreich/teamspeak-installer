@@ -8,7 +8,7 @@ Teamspeak-Installer
 ===
 To use my TeamSpeak-Installer, just copy the following line and paste it into your terminal.
 
-<code>bash <(wget -O- --no-check-certificate 'https://raw.githubusercontent.com/Naspyy/teamspeak-installer/master/installer-v2')</code>
+<code>bash <(wget -O- --no-check-certificate 'https://raw.githubusercontent.com/Naspyy/teamspeak-installer/master/installer')</code>
 
 Features
 ===
