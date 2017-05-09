@@ -20,4 +20,5 @@ wget https://github.com/Naspyy/teamspeak-installer/raw/master/run-as-teamspeak-u
 chmod +x backup.sh
 dos2unix /opt/teamspeak/run-as-teamspeak-user.sh
 chown -R teamspeak:teamspeak /opt/teamspeak/run-as-teamspeak-user.sh
+chmod +x /opt/teamspeak/run-as-teamspeak-user.sh
 su -s /bin/bash -c '/opt/teamspeak/run-as-teamspeak-user.sh' teamspeak
