@@ -1,38 +1,45 @@
 #!/bin/bash
 echo 1 > /proc/sys/net/ipv6/conf/all/forwarding
-apt-get update && echo 'y' # | apt-get upgrade
-apt-get install sudo 
-apt-get install cron
-apt-get install dos2unix
-apt-get install nano
-sudo adduser teamspeak
-sudo passwd -d teamspeak
+apt-get update && echo 'y'
+sleep 3
+apt-get -y install sudo
+sleep 3
+apt-get -y install cron
+sleep 3
+apt-get -y install dos2unix
+sleep 3
+apt-get -y install nano
+sleep 3
+apt-get -y install zip
+sleep 3
+apt-get -y install unzip
+sleep 3
 cd /opt/ || exit
-wget http://dl.4players.de/ts/releases/3.0.13.6/teamspeak3-server_linux_amd64-3.0.13.6.tar.bz2
-sleep 2
+wget http://teamspeak.gameserver.gamed.de/ts3/releases/3.0.13.6/teamspeak3-server_linux_amd64-3.0.13.6.tar.bz2
 tar -jxvf teamspeak3-server_linux_amd64-3.0.13.6.tar.bz2
 mv teamspeak3-server_linux_amd64 /opt/teamspeak
-chown -R teamspeak:teamspeak /opt/teamspeak
-su teamspeak
-cd /opt/teamspeak || exit
-./ts3server_startscript.sh start
-sleep 10
-./ts3server_startscript.sh stop
-sleep 5
-rm /opt/teamspeak/query_ip_whitelist.txt
-wget https://raw.githubusercontent.com/Naspyy/teamspeak-installer/master/query_ip_whitelist.txt
-mv query_ip_whitelist.txt /opt/teamspeak/query_ip_whitelist.txt
-chmod 755 /opt/teamspeak/query_ip_whitelist.txt
-sleep 1
+chmod +x -R teamspeak/
+rm teamspeak3-server_linux_amd64-3.0.13.6.tar.bz2
 cd /opt/teamspeak/ || exit
 ./ts3server_startscript.sh start
-sleep 5
+sleep 10
+cd /opt/ || exit
 wget https://raw.githubusercontent.com/Naspyy/teamspeak-installer/master/anticrash.sh
+chmod +x anticrash.sh
 mv anticrash.sh /opt/teamspeak/anticrash.sh
 dos2unix /opt/teamspeak/anticrash.sh
 cd /opt/teamspeak/logs/  || exit
 echo > anticrash.txt
 chmod 777 anticrash.txt
-crontab -l | { cat; echo "* * * * * cd /opt/teamspeak && ./anticrash.sh > /opt/teamspeak/logs/anticrash.txt"; } | crontab -
-chmod 755 /opt/teamspeak/anticrash.sh
-chown -R teamspeak:teamspeak /opt/teamspeak
+crontab -l | { cat; echo "* * * * * cd /opt/teamspeak/ && ./anticrash.sh > /opt/teamspeak/logs/anticrash.txt"; } | crontab -
+cd /opt/ || exit
+wget https://raw.githubusercontent.com/Naspyy/teamspeak-installer/master/backup.sh
+chmod +x backup.sh
+mkdir /opt/backup/
+mv backup.sh /opt/backup/backup.sh
+dos2unix /opt/backup/backup.sh
+cd /opt/backup/ || exit
+echo > backup.txt
+chmod 777 backup.txt
+crontab -l | { cat; echo "0 0 * * * cd /opt/backup/ && ./backup.sh > /opt/backup/backup.txt"; } | crontab -
+/opt/teamspeak/ts3server_startscript.sh status
