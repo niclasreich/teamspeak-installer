@@ -14,6 +14,7 @@ Features
 ===
 * updates all dependencies
 * installs needed dependencies (sudo, crontab, dos2unix, nano, zip & unzip)
-* installs, downloads, extracts and moves TeamSpeak³-Serversoftware to /opt/teamspeak/
+* installs, downloads, extracts and moves TeamSpeak³-Serversoftware to /opt/teamspeak/server
+* creates a teamspeak user, chowns /opt/teamspeak to the teamspeak user and let the teamspeak user run the TeamSpeak³-Serversoftware
 * downloads and installs an Anti-Crash-Script and uses Cronjob to execute it every minute to /opt/teamspeak/anticrash.sh
-* downloads and installs a Automated-Backup-Script and uses Cronjob to execute it day to /opt/backup/backup.sh
+* downloads and installs a Automated-Backup-Script and uses Cronjob to execute it day to /opt/teamspeak/backup.sh
