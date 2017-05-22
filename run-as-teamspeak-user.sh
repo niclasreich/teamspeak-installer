@@ -1,5 +1,6 @@
 #!/bin/bash
 cd /opt/teamspeak/server || exit
+wget https://github.com/Naspyy/teamspeak-installer/edit/master/query_ip_whitelist.txt
 ./ts3server_startscript.sh start
 sleep 10
 # create, download, rename and set up anticrash-file
