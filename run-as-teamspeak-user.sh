@@ -19,6 +19,6 @@ dos2unix /opt/teamspeak/backup.sh
 cd /opt/teamspeak/ || exit
 echo > backup.txt
 chmod 777 backup.txt
-crontab -l | { cat; echo "0 0 */3 * * cd /opt/teamspeak/ && ./backup.sh > /opt/teamspeak/backup.txt"; } | crontab -
+crontab -l | { cat; echo "0 0 */7 * * cd /opt/teamspeak/ && ./backup.sh > /opt/teamspeak/backup.txt"; } | crontab -
 # display if teamspeak is running
 /opt/teamspeak/server/ts3server_startscript.sh status
