@@ -22,7 +22,8 @@ chmod 777 backup.txt
 crontab -l | { cat; echo "0 0 * * * cd /opt/teamspeak/ && ./backup.sh > /opt/teamspeak/backup.txt"; } | crontab -
 cd /opt/teamspeak/ || exit
 echo > backup-remover.txt
-chmod 777 backup-remover.txt
+chown teamspeak:teamspeak /opt/teamspeak/backup-remover.txt
+chmod 777 /opt/teamspeak/backup-remover.txt
 crontab -l | { cat; echo "* * * * * find /opt/teamspeak/ -name \*.zip -a -mtime +14 -exec rm {} \; > /opt/teamspeak/backup-remover.txt"; } | crontab -
 # display if teamspeak is running
 /opt/teamspeak/server/ts3server_startscript.sh status
