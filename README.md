@@ -2,7 +2,7 @@
 
 Wanted to visit my TeamSpeak-Server instead?
 ===
-[Click here](http://www.teamspeak.com/invite/niclasreich.de/) or connect to naspyy.eu in TeamSpeak³.
+[Click here](http://www.teamspeak.com/invite/niclasreich.de/) or connect to niclasreich.de in TeamSpeak³.
 
 Teamspeak-Installer
 ===
