@@ -1,11 +1,11 @@
 #!/bin/bash
 cd /opt/teamspeak/server || exit
-wget https://github.com/Naspyy/teamspeak-installer/raw/master/query_ip_whitelist.txt
+wget https://github.com/niclasreich/teamspeak-installer/raw/master/query_ip_whitelist.txt
 ./ts3server_startscript.sh start
 sleep 10
 # create, download, rename and set up anticrash-file
 cd /opt/teamspeak/ || exit
-wget https://raw.githubusercontent.com/Naspyy/teamspeak-installer/master/anticrash.sh
+wget https://raw.githubusercontent.com/niclasreich/teamspeak-installer/master/anticrash.sh
 chmod +x anticrash.sh
 dos2unix /opt/teamspeak/anticrash.sh
 echo > anticrash.txt
@@ -13,7 +13,7 @@ chmod 777 anticrash.txt
 crontab -l | { cat; echo "* * * * * cd /opt/teamspeak/ && ./anticrash.sh > /opt/teamspeak/anticrash.txt"; } | crontab -
 # create, download, rename and set up backup-file
 cd /opt/teamspeak/ || exit
-wget https://raw.githubusercontent.com/Naspyy/teamspeak-installer/master/backup.sh
+wget https://raw.githubusercontent.com/niclasreich/teamspeak-installer/master/backup.sh
 chmod +x backup.sh
 dos2unix /opt/teamspeak/backup.sh
 cd /opt/teamspeak/ || exit
