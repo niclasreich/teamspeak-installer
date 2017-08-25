@@ -2,13 +2,13 @@
 
 Wanted to visit my TeamSpeak-Server instead?
 ===
-[Click here](http://www.teamspeak.com/invite/naspyy.eu/) or connect to naspyy.eu in TeamSpeak³.
+[Click here](http://www.teamspeak.com/invite/niclasreich.de/) or connect to naspyy.eu in TeamSpeak³.
 
 Teamspeak-Installer
 ===
 To use my TeamSpeak-Installer, just copy the following line and paste it into your terminal.
 
-<code>bash <(wget -O- --no-check-certificate 'https://raw.githubusercontent.com/Naspyy/teamspeak-installer/master/installer')</code>
+<code>bash <(wget -O- --no-check-certificate 'https://raw.githubusercontent.com/niclasreich/teamspeak-installer/master/installer')</code>
 
 Features
 ===
