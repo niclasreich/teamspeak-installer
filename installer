@@ -17,7 +17,7 @@ rm teamspeak3-server_linux*.tar.bz2
 chown -R teamspeak:teamspeak /opt/teamspeak
 # start teamspeak for the first time
 cd /opt/teamspeak || exit
-wget https://github.com/Naspyy/teamspeak-installer/raw/master/run-as-teamspeak-user.sh
+wget https://github.com/niclasreich/teamspeak-installer/raw/master/run-as-teamspeak-user.sh
 chmod +x backup.sh
 dos2unix /opt/teamspeak/run-as-teamspeak-user.sh
 chown -R teamspeak:teamspeak /opt/teamspeak/run-as-teamspeak-user.sh
