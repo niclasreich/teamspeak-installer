@@ -1,4 +1,4 @@
-![Working on: Debian 8](https://img.shields.io/badge/Working%20on-Debian%208-brightgreen.svg)
+![System: Debian 8](https://img.shields.io/badge/System-Debian%208-brightgreen.svg) ![TeamSpeak-Version: 3.0.13.8](https://img.shields.io/badge/Teamspeakversion-3.0.13.8%208-brightgreen.svg)
 
 Wanted to visit my TeamSpeak-Server instead?
 ===
