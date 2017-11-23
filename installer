@@ -2,7 +2,7 @@
 # enable IPv6 support
 echo 1 > /proc/sys/net/ipv6/conf/all/forwarding
 # update and install needed dependencies
-apt-get update && echo 'y'
+apt-get -o Acquire::ForceIPv4=true update && echo 'y'
 apt-get -y install sudo cron dos2unix nano zip unzip
 crontab -l | { cat; echo "0 4 * * 2 apt-get update && apt-get upgrade -y && apt-get autoclean >/dev/null 2>&1"; } | crontab -
 # create, download, extract and rename teamspeak-directory
