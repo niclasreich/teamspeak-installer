@@ -1,4 +1,4 @@
-![System: Debian 8](https://img.shields.io/badge/System-Debian%208-brightgreen.svg) ![TeamSpeak-Version: 3.0.13.8](https://img.shields.io/badge/Teamspeakversion-3.0.13.8-brightgreen.svg)
+![System: Debian 8](https://img.shields.io/badge/System-Debian%208-brightgreen.svg) ![TeamSpeak-Version: 3.1.0](https://img.shields.io/badge/Teamspeakversion-3.1.0-brightgreen.svg)
 
 Wanted to visit my TeamSpeak-Server instead?
 ===
@@ -9,6 +9,11 @@ Teamspeak-Installer
 To use my TeamSpeak-Installer, just copy the following line and paste it into your terminal.
 
 <code>bash <(wget -O- --no-check-certificate 'https://raw.githubusercontent.com/niclasreich/teamspeak-installer/master/installer')</code>
+
+Update from 3.0.13.8 to 3.1.0
+===
+To update from 3.0.13.8 (from my old installer version) to 3.1.0, just copy the following line and paste it into your terminal.
+<code>bash <(wget -O- --no-check-certificate 'https://raw.githubusercontent.com/niclasreich/teamspeak-installer/master/update-3.1.0') && /etc/init.d/cron start</code>
 
 Features
 ===
