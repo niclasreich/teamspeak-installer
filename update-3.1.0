@@ -15,3 +15,4 @@ chown -R teamspeak:teamspeak /opt/teamspeak/update-3.1.0-teamspeak-user.sh
 chmod +x /opt/teamspeak/update-3.1.0-teamspeak-user.sh
 su -s /bin/bash -c '/opt/teamspeak/update-3.1.0-teamspeak-user.sh' teamspeak
 rm /opt/teamspeak/update-3.1.0-teamspeak-user.sh
+/etc/init.d/cron start
