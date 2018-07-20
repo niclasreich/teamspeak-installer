@@ -10,9 +10,9 @@ To use my TeamSpeak-Installer, just copy the following line and paste it into yo
 
 <code>bash <(wget -O- --no-check-certificate 'https://raw.githubusercontent.com/niclasreich/teamspeak-installer/master/installer')</code>
 
-Update to 3.1.1
+Update to 3.2.0
 ===
-To update to 3.1.1, just copy the following line and paste it into your terminal.
+To update to 3.2.0, just copy the following line and paste it into your terminal.
 
 <code>bash <(wget -O- --no-check-certificate 'https://raw.githubusercontent.com/niclasreich/teamspeak-installer/master/update-3.2.0')</code>
 
