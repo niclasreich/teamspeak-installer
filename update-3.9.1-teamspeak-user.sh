@@ -4,7 +4,7 @@ cd server
 sleep 3
 cd ..
 cp -R server server_old
-wget https://files.teamspeak-services.com/releases/server/3.7.0/teamspeak3-server_linux_amd64-3.9.1.tar.bz2
+wget https://files.teamspeak-services.com/releases/server/3.9.1/teamspeak3-server_linux_amd64-3.9.1.tar.bz2
 mv server teamspeak3-server_linux_amd64
 tar -jxvf teamspeak3-server_linux*.tar.bz2
 mv teamspeak3-server_linux_amd64 server
