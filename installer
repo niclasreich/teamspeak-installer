@@ -10,7 +10,7 @@ adduser --disabled-password --no-create-home --gecos "" teamspeak
 mkdir /opt/teamspeak
 chown -R teamspeak:teamspeak /opt/teamspeak
 cd /opt/teamspeak || exit
-wget https://files.teamspeak-services.com/releases/server/3.12.0/teamspeak3-server_linux_amd64-3.12.0.tar.bz2
+wget https://files.teamspeak-services.com/releases/server/3.12.1/teamspeak3-server_linux_amd64-3.12.1.tar.bz2
 tar -jxvf teamspeak3-server_linux*.tar.bz2
 mv teamspeak3-server_linux_amd64 server
 rm teamspeak3-server_linux*.tar.bz2
