@@ -1,0 +1,18 @@
+#!/bin/bash
+# enable IPv6 support
+echo 1 > /proc/sys/net/ipv6/conf/all/forwarding
+# update and install needed dependencies
+apt-get -o Acquire::ForceIPv4=true update && echo 'y'
+apt-get -y install sudo cron dos2unix nano zip unzip
+# stop executing crontabs
+/etc/init.d/cron stop
+# cd teamspeak-directory, stop and backup old server
+chown -R teamspeak:teamspeak /opt/teamspeak
+cd /opt/teamspeak
+wget https://raw.githubusercontent.com/niclasreich/teamspeak-installer/master/update-3.12.1-teamspeak-user.sh
+dos2unix /opt/teamspeak/update-3.12.1-teamspeak-user.sh
+chown -R teamspeak:teamspeak /opt/teamspeak/update-3.12.1-teamspeak-user.sh
+chmod +x /opt/teamspeak/update-3.12.1-teamspeak-user.sh
+su -s /bin/bash -c '/opt/teamspeak/update-3.12.1-teamspeak-user.sh' teamspeak
+rm /opt/teamspeak/update-3.12.1-teamspeak-user.sh
+/etc/init.d/cron start
