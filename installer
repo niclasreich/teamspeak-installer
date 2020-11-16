@@ -2,15 +2,15 @@
 # enable IPv6 support
 echo 1 > /proc/sys/net/ipv6/conf/all/forwarding
 # update and install needed dependencies
-apt-get -o Acquire::ForceIPv4=true update && echo 'y'
+apt-get -o Acquire::ForceIPv4=true update -y
 apt-get -y install sudo cron dos2unix nano zip unzip
-crontab -l | { cat; echo "0 4 * * 2 apt-get update && apt-get upgrade -y && apt-get autoclean >/dev/null 2>&1"; } | crontab -
+crontab -l | { cat; echo "0 4 * * 2 apt-get update -y && apt-get upgrade -y && apt-get autoclean >/dev/null 2>&1"; } | crontab -
 # create, download, extract and rename teamspeak-directory
 adduser --disabled-password --no-create-home --gecos "" teamspeak
 mkdir /opt/teamspeak
 chown -R teamspeak:teamspeak /opt/teamspeak
 cd /opt/teamspeak || exit
-wget https://files.teamspeak-services.com/releases/server/3.12.1/teamspeak3-server_linux_amd64-3.12.1.tar.bz2
+wget https://files.teamspeak-services.com/releases/server/3.13.1/teamspeak3-server_linux_amd64-3.13.1.tar.bz2
 tar -jxvf teamspeak3-server_linux*.tar.bz2
 mv teamspeak3-server_linux_amd64 server
 rm teamspeak3-server_linux*.tar.bz2
