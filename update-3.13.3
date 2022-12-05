@@ -9,10 +9,10 @@ apt-get -y install sudo cron dos2unix nano zip unzip
 # cd teamspeak-directory, stop and backup old server
 chown -R teamspeak:teamspeak /opt/teamspeak
 cd /opt/teamspeak
-wget https://raw.githubusercontent.com/niclasreich/teamspeak-installer/master/update-3.13.3-teamspeak-user.sh
-dos2unix /opt/teamspeak/update-3.13.3-teamspeak-user.sh
-chown -R teamspeak:teamspeak /opt/teamspeak/update-3.13.3-teamspeak-user.sh
-chmod +x /opt/teamspeak/update-3.13.3-teamspeak-user.sh
-su -s /bin/bash -c '/opt/teamspeak/update-3.13.3-teamspeak-user.sh' teamspeak
-rm /opt/teamspeak/update-3.13.3-teamspeak-user.sh
+wget https://raw.githubusercontent.com/niclasreich/teamspeak-installer/master/update-3.13.7-teamspeak-user.sh
+dos2unix /opt/teamspeak/update-3.13.7-teamspeak-user.sh
+chown -R teamspeak:teamspeak /opt/teamspeak/update-3.13.7-teamspeak-user.sh
+chmod +x /opt/teamspeak/update-3.13.7-teamspeak-user.sh
+su -s /bin/bash -c '/opt/teamspeak/update-3.13.7-teamspeak-user.sh' teamspeak
+rm /opt/teamspeak/update-3.13.7-teamspeak-user.sh
 /etc/init.d/cron start
