@@ -10,7 +10,7 @@ Update to 3.13.7
 ===
 To update to 3.13.7, just copy the following line and paste it into your terminal.
 
-<code>bash <(wget -O- --no-check-certificate 'https://raw.githubusercontent.com/niclasreich/teamspeak-installer/master/update-3.13.3')</code>
+<code>bash <(wget -O- --no-check-certificate 'https://raw.githubusercontent.com/niclasreich/teamspeak-installer/master/update-3.13.7')</code>
 
 Features
 ===
